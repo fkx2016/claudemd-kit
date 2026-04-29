@@ -3,7 +3,7 @@ main = "src/index.js"
 compatibility_date = "2026-04-01"
 
 [vars]
-RESEND_AUDIENCE_ID = "REPLACE_WITH_YOUR_AUDIENCE_ID"
+RESEND_AUDIENCE_ID = "2864a79c-2c2f-4c7d-8552-83ca9f0552a1"
 FROM_EMAIL         = "kurka@kurkalabs.dev"
 FROM_NAME          = "Frank @ Kurka Labs"
 DOWNLOAD_URL       = "https://pub-XXXXXXXX.r2.dev/claudemd-kit.zip"
