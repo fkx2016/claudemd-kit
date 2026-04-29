@@ -326,6 +326,19 @@
 install.sh, install.ps1            <span class="tree-comment">one-command install</span></pre>
 
       <section class="value-section">
+        <div class="section-label">The four layers</div>
+        <p>CLAUDE.md is loaded from four scopes, most-general to most-specific. The kit gives you a working starting point in each.</p>
+
+        <pre class="tree-block"><span class="tree-comment"># Loaded in order; most specific wins</span>
+
+<span class="tree-dir">~/.claude/CLAUDE.md</span>          <span class="tree-comment">"You"   - style, defaults, every project</span>
+<span class="tree-dir">&lt;repo&gt;/CLAUDE.md</span>             <span class="tree-comment">"Team"  - committed, shared with collaborators</span>
+<span class="tree-dir">&lt;repo&gt;/CLAUDE.local.md</span>       <span class="tree-comment">"Local" - gitignored, just this checkout</span>
+<span class="tree-dir">&lt;repo&gt;/subdir/CLAUDE.md</span>      <span class="tree-comment">"Path"  - loads only when working in subdir/</span></pre>
+
+        <p>Layer 1 is your personal style. Layer 2 is the codebase's constitution. Layer 3 is your scratchpad. Layer 4 keeps frontend rules out of backend sessions and vice versa. Conflate any two and you'll feel friction.</p>
+      </section>
+      <section class="value-section">
         <div class="section-label">Why this exists</div>
         <p>If you run more than one project, you're already retyping the same conventions into every new Claude Code session. Cache-bump rules. Deploy patterns. "Never use CMD for git commits." "Never <code>--branch=production</code>." That's friction you don't have to carry.</p>
         <p>This kit is the composition pattern in working form: a small library of fragments at <code>~/.claude/templates/</code>, and project files that <code>@import</code> what they need. Edit the fragments once; every project inherits the improvement.</p>
