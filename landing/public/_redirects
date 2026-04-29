@@ -1,0 +1,2 @@
+# Proxy /api/* to the subscription Worker
+/api/* https://claudemd-kit-subscribe.fkurka.workers.dev/api/:splat 200
