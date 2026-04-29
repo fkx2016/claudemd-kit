@@ -6,13 +6,13 @@ compatibility_date = "2026-04-01"
 RESEND_AUDIENCE_ID = "2864a79c-2c2f-4c7d-8552-83ca9f0552a1"
 FROM_EMAIL         = "kurka@kurkalabs.dev"
 FROM_NAME          = "Frank @ Kurka Labs"
-DOWNLOAD_URL       = "https://pub-XXXXXXXX.r2.dev/claudemd-kit.zip"
+DOWNLOAD_URL       = "https://pub-204b94343bc14a6aac82bfe598168db7.r2.dev/claudemd-kit.zip"
 ARTICLE_URL        = "https://fkxx.substack.com/p/claude-md-is-not-a-config-file"
 ALLOWED_ORIGIN     = "https://claudemd.kurkalabs.dev"
 
 # Secrets — set via CLI:
-#   npx wrangler secret put RESEND_API_KEY
-#   npx wrangler secret put TURNSTILE_SECRET_KEY
+#   npx wrangler secret put RESEND_API_KEY        ✓ set
+#   npx wrangler secret put TURNSTILE_SECRET_KEY  ✓ set
 
 # D1 binding — uncomment after `npx wrangler d1 create claudemd-kit-db`:
 # [[d1_databases]]
