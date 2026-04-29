@@ -1,6 +1,7 @@
 name = "claudemd-kit-subscribe"
 main = "src/index.js"
 compatibility_date = "2026-04-01"
+workers_dev = true
 
 [vars]
 RESEND_AUDIENCE_ID = "2864a79c-2c2f-4c7d-8552-83ca9f0552a1"
@@ -10,17 +11,11 @@ DOWNLOAD_URL       = "https://pub-204b94343bc14a6aac82bfe598168db7.r2.dev/claude
 ARTICLE_URL        = "https://fkxx.substack.com/p/claude-md-is-not-a-config-file"
 ALLOWED_ORIGIN     = "https://claudemd.kurkalabs.dev"
 
-# Secrets — set via CLI:
-#   npx wrangler secret put RESEND_API_KEY        ✓ set
-#   npx wrangler secret put TURNSTILE_SECRET_KEY  ✓ set
+# Secrets (set via CLI):
+#   npx wrangler secret put RESEND_API_KEY        - set
+#   npx wrangler secret put TURNSTILE_SECRET_KEY  - set
 
-# D1 binding — uncomment after `npx wrangler d1 create claudemd-kit-db`:
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "claudemd-kit-db"
-# database_id = "REPLACE_WITH_DATABASE_ID"
-
-# Custom domain route — uncomment after Pages site + custom domain are set up:
-# [[routes]]
-# pattern = "claudemd.kurkalabs.dev/api/*"
-# zone_name = "kurkalabs.dev"
+# Worker route - intercept /api/* on the custom domain
+[[routes]]
+pattern   = "claudemd.kurkalabs.dev/api/*"
+zone_name = "kurkalabs.dev"

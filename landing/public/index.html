@@ -280,7 +280,7 @@
         <span class="brand-dot"></span>
         <a href="https://kurkalabs.dev">KURKA LABS</a>
       </div>
-      <div class="header-meta">FREE / 14 FILES / 15KB</div>
+      <div class="header-meta">FREE / 25 FILES / 25KB</div>
     </header>
 
     <main>
@@ -295,19 +295,35 @@
 +-- <span class="tree-dir">templates/</span>
 |   +-- cloudflare-worker.md
 |   +-- python-package.md
+|   +-- node-typescript.md
+|   +-- fastapi.md
 |   +-- react-frontend.md
 |   +-- monorepo.md
-+-- <span class="tree-dir">commands/</span>standup.md         <span class="tree-comment">/standup</span>
-+-- <span class="tree-dir">agents/</span>code-reviewer.md     <span class="tree-comment">isolated context</span>
++-- <span class="tree-dir">commands/</span>
+|   +-- standup.md
+|   +-- postmortem.md
+|   +-- explain.md
++-- <span class="tree-dir">agents/</span>
+|   +-- code-reviewer.md
+|   +-- test-writer.md
++-- <span class="tree-dir">hooks/</span>
+    +-- pre-tool-use.md            <span class="tree-comment">example config</span>
 
 <span class="tree-dir">project/</span>                           <span class="tree-comment">&rarr; &lt;repo&gt;/</span>
 +-- CLAUDE.md                      <span class="tree-comment">uses @imports</span>
 +-- CLAUDE.local.md                <span class="tree-comment">gitignored scratchpad</span>
 +-- <span class="tree-dir">frontend/</span>CLAUDE.md           <span class="tree-comment">path-scoped</span>
 +-- <span class="tree-dir">.claude/</span>
-    +-- settings.json              <span class="tree-comment">deny list, sane defaults</span>
-    +-- <span class="tree-dir">rules/</span>database.md
-    +-- <span class="tree-dir">skills/</span>security-review/SKILL.md</pre>
+    +-- settings.json              <span class="tree-comment">allow/deny lists</span>
+    +-- <span class="tree-dir">rules/</span>
+    |   +-- database.md
+    |   +-- api-design.md
+    |   +-- secrets.md
+    +-- <span class="tree-dir">skills/</span>
+        +-- security-review/SKILL.md
+        +-- dependency-audit/SKILL.md
+
+install.sh, install.ps1            <span class="tree-comment">one-command install</span></pre>
 
       <section class="value-section">
         <div class="section-label">Why this exists</div>
