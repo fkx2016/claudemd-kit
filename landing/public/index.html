@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The CLAUDE.md Starter Kit â€” Kurka Labs</title>
+  <title>The CLAUDE.md Starter Kit &mdash; Kurka Labs</title>
   <meta name="description" content="A drop-in .claude/ setup for Claude Code. Composition pattern, working examples of every subsystem. Free." />
 
   <meta property="og:title" content="The CLAUDE.md Starter Kit" />
@@ -290,24 +290,24 @@
 
       <pre class="tree-block"><span class="tree-comment"># What you get</span>
 
-<span class="tree-dir">home/</span>                              <span class="tree-comment">â†’ ~/.claude/</span>
-â”œâ”€â”€ CLAUDE.md                      <span class="tree-comment">Lean global identity</span>
-â”œâ”€â”€ <span class="tree-dir">templates/</span>
-â”‚   â”œâ”€â”€ cloudflare-worker.md
-â”‚   â”œâ”€â”€ python-package.md
-â”‚   â”œâ”€â”€ react-frontend.md
-â”‚   â””â”€â”€ monorepo.md
-â”œâ”€â”€ <span class="tree-dir">commands/</span>standup.md         <span class="tree-comment">/standup</span>
-â””â”€â”€ <span class="tree-dir">agents/</span>code-reviewer.md     <span class="tree-comment">isolated context</span>
+<span class="tree-dir">home/</span>                              <span class="tree-comment">&rarr; ~/.claude/</span>
++-- CLAUDE.md                      <span class="tree-comment">Lean global identity</span>
++-- <span class="tree-dir">templates/</span>
+|   +-- cloudflare-worker.md
+|   +-- python-package.md
+|   +-- react-frontend.md
+|   +-- monorepo.md
++-- <span class="tree-dir">commands/</span>standup.md         <span class="tree-comment">/standup</span>
++-- <span class="tree-dir">agents/</span>code-reviewer.md     <span class="tree-comment">isolated context</span>
 
-<span class="tree-dir">project/</span>                           <span class="tree-comment">â†’ &lt;repo&gt;/</span>
-â”œâ”€â”€ CLAUDE.md                      <span class="tree-comment">uses @imports</span>
-â”œâ”€â”€ CLAUDE.local.md                <span class="tree-comment">gitignored scratchpad</span>
-â”œâ”€â”€ <span class="tree-dir">frontend/</span>CLAUDE.md           <span class="tree-comment">path-scoped</span>
-â””â”€â”€ <span class="tree-dir">.claude/</span>
-    â”œâ”€â”€ settings.json              <span class="tree-comment">deny list, sane defaults</span>
-    â”œâ”€â”€ <span class="tree-dir">rules/</span>database.md
-    â””â”€â”€ <span class="tree-dir">skills/</span>security-review/SKILL.md</pre>
+<span class="tree-dir">project/</span>                           <span class="tree-comment">&rarr; &lt;repo&gt;/</span>
++-- CLAUDE.md                      <span class="tree-comment">uses @imports</span>
++-- CLAUDE.local.md                <span class="tree-comment">gitignored scratchpad</span>
++-- <span class="tree-dir">frontend/</span>CLAUDE.md           <span class="tree-comment">path-scoped</span>
++-- <span class="tree-dir">.claude/</span>
+    +-- settings.json              <span class="tree-comment">deny list, sane defaults</span>
+    +-- <span class="tree-dir">rules/</span>database.md
+    +-- <span class="tree-dir">skills/</span>security-review/SKILL.md</pre>
 
       <section class="value-section">
         <div class="section-label">Why this exists</div>
@@ -321,7 +321,7 @@
 
         <form class="form" id="subscribe-form" novalidate>
           <input type="email" id="email" name="email" placeholder="you@domain.com" autocomplete="email" required />
-          <button type="submit" id="submit-btn">Send me the kit â†’</button>
+          <button type="submit" id="submit-btn">Send me the kit &rarr;</button>
         </form>
 
         <div class="turnstile-slot" id="turnstile-slot">
@@ -340,7 +340,7 @@
       <div class="read-more">
         <a href="https://fkxx.substack.com" id="article-link">
           <span>Read the full article: <em style="font-family: var(--font-display); font-style: italic;">CLAUDE.md Is Not a Config File</em></span>
-          <span class="arrow">â†’</span>
+          <span class="arrow">&rarr;</span>
         </a>
       </div>
     </main>
@@ -398,18 +398,18 @@
             form.style.display = 'none';
             document.querySelector('.form-meta').style.display = 'none';
             turnstileSlot.style.display = 'none';
-            showMessage('Sent. Check ' + email + ' â€” should arrive within a minute. Search for "Kurka Labs" if it lands in spam.', 'success');
+            showMessage('Sent. Check ' + email + ' -- should arrive within a minute. Search for "Kurka Labs" if it lands in spam.', 'success');
           } else {
             const errorMsg = data.error || 'Something went wrong. Try again in a moment.';
             showMessage(errorMsg, 'error');
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Send me the kit â†’';
+            submitBtn.textContent = 'Send me the kit ->';
             if (window.turnstile) { window.turnstile.reset(); window.turnstileToken = null; }
           }
         } catch (err) {
           showMessage('Network error. Check your connection and try again.', 'error');
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Send me the kit â†’';
+          submitBtn.textContent = 'Send me the kit ->';
         }
       });
     })();
