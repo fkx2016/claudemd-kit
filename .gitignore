@@ -37,3 +37,8 @@ CLAUDE.local.md
 
 # Logs
 logs/
+
+# Temp files (commit message scratchpads, etc.)
+*.tmp
+.msg*.tmp
+.commit_msg.tmp
