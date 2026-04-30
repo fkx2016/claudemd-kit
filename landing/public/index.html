@@ -288,6 +288,12 @@
       <h1>CLAUDE.md is <em>not</em> a config file.</h1>
       <p class="lede">It's the editorial layer of a layered context system. Most people are using maybe 10% of what it can do. This kit closes that gap.</p>
 
+      <section class="value-section">
+        <div class="section-label">What it actually is</div>
+        <p>A config file <em>declares</em> values: <code>port: 8080</code>, <code>theme: dark</code>. Read once, applied. Static.</p>
+        <p><code>CLAUDE.md</code> <em>describes a working relationship</em>: your style, your stack, the rules you keep retyping into every new chat. Read every session, shapes Claude's responses.</p>
+        <p>The difference matters. Config-file thinking gives you settings. Editorial thinking gives you "always run migrations through Alembic, never raw SQL" &mdash; the rules that make Claude <em>useful</em>, not just configured.</p>
+      </section>
       <pre class="tree-block"><span class="tree-comment"># What you get</span>
 
 <span class="tree-dir">home/</span>                              <span class="tree-comment">&rarr; ~/.claude/</span>
@@ -344,6 +350,12 @@ install.sh, install.ps1            <span class="tree-comment">one-command instal
         <p>This kit is the composition pattern in working form: a small library of fragments at <code>~/.claude/templates/</code>, and project files that <code>@import</code> what they need. Edit the fragments once; every project inherits the improvement.</p>
       </section>
 
+      <section class="value-section">
+        <div class="section-label">Already typed <code>/init</code>?</div>
+        <p><code>/init</code> reads your repo and generates a baseline <code>CLAUDE.md</code>. It's a fine starting point &mdash; but it only fills Layer 2, and only with what it can guess from existing code. The kit completes the picture: a global layer that travels with you, path-scoped rules, a real <code>.claude/</code> folder, and templates you can <code>@import</code> instead of retyping.</p>
+        <p><strong>If you've already run <code>/init</code>:</strong> install the kit, keep what <code>/init</code> got right (it's good at facts &mdash; your stack, your build commands), let the kit handle the structure. The kit's <code>STRUCTURE.md</code> walks through the merge.</p>
+        <p><strong>If you haven't:</strong> install the kit first, then customize. You may not need <code>/init</code> at all &mdash; the kit's project template is a better skeleton, and you can fill in the codebase facts yourself in five minutes.</p>
+      </section>
       <section class="form-wrap">
         <div class="form-title">Get the kit.</div>
         <div class="form-sub">Drop the link in your inbox. No fluff, no upsell sequence.</div>

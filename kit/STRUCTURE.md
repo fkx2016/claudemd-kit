@@ -2,6 +2,84 @@
 
 A reference for thinking about the layered CLAUDE.md system. Read this once after install; you won't need to come back.
 
+## What CLAUDE.md actually is
+
+Most newcomers treat `CLAUDE.md` as a config file. It isn't. The distinction matters because it changes what you put in it and how you maintain it.
+
+**Config files declare values.** `port: 8080`, `theme: dark`, `lint: strict`. The tool reads them once and behaves accordingly. Settings, not conversations. Static.
+
+**`CLAUDE.md` describes a working relationship.** Your style, your stack, the conventions you keep retyping, the rules that have bitten you before, what to ask before doing, when to push back. Claude reads it every session, and it shapes how Claude responds — not what features are on or off.
+
+That's why "config-file thinking" produces files that look like `package.json` (machine-readable, terse, declarative) while good `CLAUDE.md` files read like a senior engineer's onboarding doc (human-readable, opinionated, full of rules-of-thumb).
+
+If you ever find yourself trying to make `CLAUDE.md` parseable or terse, you've drifted into config-file thinking. Push back the other way. Make it descriptive. Editorial. Specific.
+
+## First-time setup: the three scenarios
+
+Most people arrive at Claude Code through one of these paths. The kit fits all three, but the steps differ.
+
+### Scenario 1: New empty folder, no codebase yet
+
+You created a folder for a project you haven't started. Maybe you ran `/init`, maybe you didn't.
+
+**Do this:**
+1. Run `bash install.sh` (or `install.ps1` on Windows). This installs Layer 1 (`~/.claude/`) — your style, templates, commands, agents. One-time, applies to every project from now on.
+2. Copy the project template into your new folder: `cp -r project/* ~/your-new-project/`. This installs Layers 2, 3, and 4 — the project's `CLAUDE.md`, the gitignored local file, and an example path-scoped file.
+3. Edit `~/your-new-project/CLAUDE.md` — replace the `[Stack]`, `[Commands]`, `[Conventions]` placeholders with your actual project facts. Five minutes.
+4. (Optional) Run `/init` AFTER your code exists. It'll regenerate the project `CLAUDE.md` based on the code. Merge what's useful.
+
+**Skip `/init`?** Yes, for an empty folder. There's nothing for it to read; it'll produce a generic stub. The kit's template is more useful.
+
+### Scenario 2: Existing codebase, no `CLAUDE.md` yet
+
+You have a real project with code, and you want to set Claude up properly.
+
+**Do this:**
+1. Install the kit globally: `bash install.sh` (Layer 1).
+2. Run `/init` in your project. Let Claude read the codebase and generate a project `CLAUDE.md` (Layer 2). Read what it produced. Most of it will be roughly right but generic.
+3. Copy the kit's project structure in alongside `/init`'s output:
+   - `cp -r project/.claude/ <repo>/` — this gives you the rules, skills, and settings.
+   - `cp project/CLAUDE.local.md <repo>/` — your gitignored scratchpad.
+   - `cp -r project/frontend/ <repo>/` ONLY if you have a `frontend/` directory and want path-scoped rules. (Otherwise skip; create `<repo>/<your-subdir>/CLAUDE.md` files manually as needed.)
+4. Merge `/init`'s `CLAUDE.md` with the kit's template:
+   - `/init` is good at facts (stack, build commands, file layout). Keep those.
+   - The kit's template is good at structure (placeholder sections, `@imports`, immutable rules format). Use that shape.
+   - Goal: a `CLAUDE.md` that USES the kit's structure but is FILLED with `/init`'s codebase-specific facts.
+5. Add `@import` lines pointing to the rules files in `.claude/rules/` — that's how the layered system actually fires.
+
+### Scenario 3: Existing codebase WITH `/init`-generated `CLAUDE.md` already
+
+You ran `/init`, started coding, now you want to upgrade.
+
+**Do this:**
+1. Move your current `CLAUDE.md` to `CLAUDE.md.init-backup`. Don't delete it; you'll mine it for facts.
+2. Install the kit: `bash install.sh` for Layer 1, `cp -r project/* <repo>/` for Layers 2-4.
+3. Open both files side by side. Migrate the codebase-specific bits from `CLAUDE.md.init-backup` into the kit's `CLAUDE.md` template — under the right headings (Stack, Build/Test/Deploy, Conventions, etc.).
+4. Move any "always" / "never" rules that came out of `/init` into `.claude/rules/` files (one rule per topic), and `@import` them from the project `CLAUDE.md`.
+5. Delete `CLAUDE.md.init-backup` once everything useful has been migrated.
+
+### Why not just keep `/init`'s output as-is?
+
+`/init` produces a single flat `CLAUDE.md`. It has no sense of:
+
+- **Layer 1** — your global identity. Every project gets `/init`'s output but nothing about *you*.
+- **Layer 3** — your gitignored local notes. There's nowhere to write "I'm in the middle of refactoring X."
+- **Layer 4** — path-scoped rules. Frontend rules stay in the global doc, costing tokens on every backend session.
+- **`.claude/` subsystems** — no skills, no commands, no agents, no allow/deny lists. You only get the `CLAUDE.md` itself.
+- **`@import` composition** — everything is inline. When you have ten projects, you'll be retyping the same rules into each one.
+
+The kit fills these gaps. `/init` is a fine first move; the kit is what you should reach for the second move.
+
+## Quick check: is your setup working?
+
+After install:
+
+1. Run `claude` in a project that has the kit installed.
+2. In the first message, ask: "What do you know about this project?"
+3. Claude should mention things from your `~/.claude/CLAUDE.md` (Layer 1), the project's `CLAUDE.md` (Layer 2), and any path-scoped CLAUDE.md if you're inside a relevant subdir (Layer 4).
+4. If it doesn't, the layers aren't being loaded — check that the files exist and that the project root is correct.
+
+If you have `CLAUDE.local.md`, ask "are you reading my local notes?" — it should reference the file's content.
 ## The four layers
 
 CLAUDE.md is loaded from four scopes. Each layer has a job. Stop conflating them and a lot of friction disappears.
