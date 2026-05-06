@@ -1,3 +1,15 @@
+<!-- METADATA
+name: claudemd-kit
+canonical_name: claudemd-kit
+status: Shipped
+created: 2026-04-29
+last_touched: 2026-04-29
+one_liner: Lead-magnet landing page + downloadable kit teaching the four-layer CLAUDE.md system for Claude Code. Live at claudemd.kurkalabs.dev.
+related_projects: agentsmd-kit, kurkalabs-landing-template
+related_repos: github.com/fkx2016/claudemd-kit, github.com/fkx2016/agentsmd-kit
+tags: lead-magnet, claude-code, kurka-labs, cloudflare-pages, resend, ai-tooling
+-->
+
 # claudemd-kit
 
 > The CLAUDE.md Starter Kit. A composable `.claude/` setup for Claude Code, plus the landing page that delivers it.
